@@ -5,6 +5,8 @@ import router from './router'
 
 Vue.config.productionTip = false
 
+let app = ''
+
 const config = {
   apiKey: 'AIzaSyCcvHqaksh8DtkRaqBBJf1U529NzNWF3Hg',
   authDomain: 'vue-test-5d63e.firebaseapp.com',
@@ -16,7 +18,11 @@ const config = {
 
 firebase.initializeApp(config)
 
-new Vue({
-  router,
-  render: h => h(App)
-}).$mount('#app')
+firebase.auth().onAuthStateChanged(() => {
+  if (!app) {
+    app = new Vue({
+      router,
+      render: h => h(App)
+    }).$mount('#app')
+  }
+})
