@@ -46,3 +46,5 @@ router.beforeEach((to, from, next) => {
   else if (!requiresAuth && currentUser) next('home')
   else next()
 })
+
+export default router
