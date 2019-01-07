@@ -5,10 +5,13 @@
   "scripts": {
     "serve": "vue-cli-service serve",
     "build": "vue-cli-service build",
+    "start": "serve -s build",
+    "heroku-postbuild": "npm run build",
     "lint": "vue-cli-service lint"
   },
   "dependencies": {
     "firebase": "^5.7.1",
+    "serve": "^10.1.1",
     "vue": "^2.5.17",
     "vue-router": "^3.0.1"
   },
